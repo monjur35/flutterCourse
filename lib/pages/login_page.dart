@@ -41,12 +41,23 @@ class _LoginPageState extends State<LoginPage> {
               ]),
             ),
             const SizedBox(height: 50),
-            ElevatedButton(
+           Container(
+             width: 150,
+             height: 40,
+             color: Colors.indigo,
+             alignment: Alignment.center,
+             child: const Text("Log in",
+             style: TextStyle(color:Colors.white,
+             fontWeight: FontWeight.bold,
+             fontSize: 18)),
+
+           ),
+           /* ElevatedButton(
                 child: Text("Login"),
                 style: TextButton.styleFrom(minimumSize: Size(150, 40)),
                 onPressed: () {
                   Navigator.pushNamed(context, MyRoutes.homeRoute);
-                })
+                })*/
           ]),
         ));
   }
