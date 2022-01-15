@@ -2,15 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:untitled/MyRoutes.dart';
 
 class LoginPage extends StatefulWidget {
+  const LoginPage({Key? key}) : super(key: key);
+
   @override
   State<LoginPage> createState() => _LoginPageState();
 }
 
 class _LoginPageState extends State<LoginPage> {
-  String name ="";
+  String name = "";
+  var onChanged = false;
+
   @override
   Widget build(BuildContext context) {
-
     return Material(
         color: Colors.white,
         child: SingleChildScrollView(
@@ -25,12 +28,12 @@ class _LoginPageState extends State<LoginPage> {
               padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 32),
               child: Column(children: [
                 TextFormField(
-                  decoration: const InputDecoration(hintText: "Enter username", labelText: "UserName"),
-                  onChanged: (value) {
-                    name = value;
-                    setState(() {});
-                  }
-                ),
+                    decoration: const InputDecoration(
+                        hintText: "Enter username", labelText: "UserName"),
+                    onChanged: (value) {
+                      name = value;
+                      setState(() {});
+                    }),
                 TextFormField(
                   obscureText: true,
                   decoration: const InputDecoration(
@@ -41,7 +44,40 @@ class _LoginPageState extends State<LoginPage> {
               ]),
             ),
             const SizedBox(height: 50),
-           Container(
+            InkWell(
+              onTap: () async {
+                setState(() {
+                  onChanged = true;
+                });
+                await Future.delayed(Duration(seconds: 1));
+                Navigator.pushNamed(context, MyRoutes.homeRoute);
+              },
+              child: AnimatedContainer(
+                duration: const Duration(seconds: 1),
+                width: onChanged ? 50 : 150,
+                height: 40,
+                alignment: Alignment.center,
+                child: onChanged
+                    ? Icon(
+                        Icons.done,
+                        color: Colors.white,
+                      )
+                    : Text(
+                        "Login",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18
+                        ),
+                      ),
+                decoration: BoxDecoration(
+                  color: Colors.indigo,
+                  //shape: onChanged? BoxShape.circle:BoxShape.rectangle ,
+                  borderRadius: BorderRadius.circular(onChanged ? 50 : 8),
+                ),
+              ),
+            ),
+            /* Container(
              width: 150,
              height: 40,
              color: Colors.indigo,
@@ -51,8 +87,8 @@ class _LoginPageState extends State<LoginPage> {
              fontWeight: FontWeight.bold,
              fontSize: 18)),
 
-           ),
-           /* ElevatedButton(
+           ),*/
+            /* ElevatedButton(
                 child: Text("Login"),
                 style: TextButton.styleFrom(minimumSize: Size(150, 40)),
                 onPressed: () {
