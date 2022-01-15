@@ -9,8 +9,21 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  String name = "";
+  String userName = "";
   var onChanged = false;
+  final _formKey=GlobalKey<FormState>();
+  logIn(BuildContext context) async{
+    if(_formKey.currentState?.validate()) {
+      setState(() {
+        onChanged = true;
+      });
+      await Future.delayed(Duration(seconds: 1));
+      await Navigator.pushNamed(context, MyRoutes.homeRoute);
+      setState(() {
+        onChanged = false;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +34,7 @@ class _LoginPageState extends State<LoginPage> {
             Image.asset("assets/images/login_image.png", fit: BoxFit.cover),
             const SizedBox(height: 20),
             Text(
-              "Welcome $name",
+              "Welcome $userName",
               style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
             ),
             Padding(
@@ -30,8 +43,14 @@ class _LoginPageState extends State<LoginPage> {
                 TextFormField(
                     decoration: const InputDecoration(
                         hintText: "Enter username", labelText: "UserName"),
+                     validator: (String? value){
+                     if(value!.isEmpty ){
+                       return "Username can't be empty";
+                     }
+                     return null;
+                    },
                     onChanged: (value) {
-                      name = value;
+                      userName = value;
                       setState(() {});
                     }),
                 TextFormField(
@@ -40,60 +59,46 @@ class _LoginPageState extends State<LoginPage> {
                     hintText: "Enter password",
                     labelText: "Password",
                   ),
+                  validator: (String? value){
+                    if(value!.isEmpty ){
+                      return "Password can't be empty";
+                    }
+                    else if(value.length<6){
+                      return "Password must be 6 characters";
+                    }
+                    return null;
+                  },
                 )
               ]),
             ),
             const SizedBox(height: 50),
-            InkWell(
-              onTap: () async {
-                setState(() {
-                  onChanged = true;
-                });
-                await Future.delayed(Duration(seconds: 1));
-                Navigator.pushNamed(context, MyRoutes.homeRoute);
-              },
-              child: AnimatedContainer(
-                duration: const Duration(seconds: 1),
-                width: onChanged ? 50 : 150,
-                height: 40,
-                alignment: Alignment.center,
-                child: onChanged
-                    ? Icon(
-                        Icons.done,
-                        color: Colors.white,
-                      )
-                    : Text(
-                        "Login",
-                        style: TextStyle(
+            Material(
+              color: Colors.indigo,
+              borderRadius: BorderRadius.circular(onChanged ? 50 : 8),
+              child: InkWell(
+                splashColor: Colors.red,
+                onTap: ()=>logIn(context),
+                child: AnimatedContainer(
+                  duration: const Duration(seconds: 1),
+                  width: onChanged ? 50 : 150,
+                  height: 40,
+                  alignment: Alignment.center,
+                  child: onChanged
+                      ? Icon(
+                          Icons.done,
                           color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18
+                        )
+                      : Text(
+                          "Login",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18
+                          ),
                         ),
-                      ),
-                decoration: BoxDecoration(
-                  color: Colors.indigo,
-                  //shape: onChanged? BoxShape.circle:BoxShape.rectangle ,
-                  borderRadius: BorderRadius.circular(onChanged ? 50 : 8),
                 ),
               ),
             ),
-            /* Container(
-             width: 150,
-             height: 40,
-             color: Colors.indigo,
-             alignment: Alignment.center,
-             child: const Text("Log in",
-             style: TextStyle(color:Colors.white,
-             fontWeight: FontWeight.bold,
-             fontSize: 18)),
-
-           ),*/
-            /* ElevatedButton(
-                child: Text("Login"),
-                style: TextButton.styleFrom(minimumSize: Size(150, 40)),
-                onPressed: () {
-                  Navigator.pushNamed(context, MyRoutes.homeRoute);
-                })*/
           ]),
         ));
   }
