@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:untitled/MyRoutes.dart';
+import 'package:untitled/utils/MyRoutes.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
-
   @override
   _LoginPageState createState() => _LoginPageState();
 }
@@ -16,16 +14,16 @@ class _LoginPageState extends State<LoginPage> {
 
   moveToHome(BuildContext context) async {
     if (_formKey.currentState!.validate()) {
+    } else {
       setState(() {
         changeButton = true;
       });
+      await Future.delayed(Duration(seconds: 1));
+      await Navigator.pushNamed(context, MyRoutes.homeRoute);
+      setState(() {
+        changeButton = false;
+      });
     }
-    await Future.delayed(Duration(seconds: 1));
-    await Navigator.pushNamed(context, MyRoutes.homeRoute);
-
-    setState(() {
-      changeButton = false;
-    });
   }
 
   @override
@@ -41,17 +39,17 @@ class _LoginPageState extends State<LoginPage> {
                   "assets/images/login_image.png",
                   fit: BoxFit.cover,
                 ),
-                const SizedBox(
+                SizedBox(
                   height: 20.0,
                 ),
                 Text(
                   "Welcome $name",
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 28,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                const SizedBox(
+                SizedBox(
                   height: 20.0,
                 ),
                 Padding(
@@ -60,14 +58,15 @@ class _LoginPageState extends State<LoginPage> {
                   child: Column(
                     children: [
                       TextFormField(
-                        decoration: const InputDecoration(
+                        decoration: InputDecoration(
                           hintText: "Enter username",
                           labelText: "Username",
                         ),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
-                            return 'Please enter some text';
+                            return "Username cannot be empty";
                           }
+
                           return null;
                         },
                         onChanged: (value) {
@@ -77,18 +76,21 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       TextFormField(
                         obscureText: true,
-                        decoration: const InputDecoration(
+                        decoration: InputDecoration(
                           hintText: "Enter password",
                           labelText: "Password",
                         ),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
-                            return 'Please enter some text';
+                            return "Password cannot be empty";
+                          } else if (value == null || value.length < 6) {
+                            return "Password length should be atleast 6";
                           }
+
                           return null;
                         },
                       ),
-                      const SizedBox(
+                      SizedBox(
                         height: 40.0,
                       ),
                       Material(
@@ -103,11 +105,11 @@ class _LoginPageState extends State<LoginPage> {
                             height: 50,
                             alignment: Alignment.center,
                             child: changeButton
-                                ? const Icon(
+                                ? Icon(
                                     Icons.done,
                                     color: Colors.white,
                                   )
-                                : const Text(
+                                : Text(
                                     "Login",
                                     style: TextStyle(
                                         color: Colors.white,
