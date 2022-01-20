@@ -8,19 +8,35 @@ class HomePage extends StatelessWidget {
     String name = "Monjur";
 
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text(
-          "Monjur",
-          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-        ),
-        elevation: 0.0,
-      ),
+      backgroundColor: Colors.grey[900],
       body: Center(
-          child: Container(
-        child: Text("Welcome ${days} days of $name"),
-      )),
-      drawer: HomeDrawer(),
+        child: Container(
+          padding: EdgeInsets.all(20),
+          height: 200,
+          width: 200,
+          decoration: BoxDecoration(
+              color: Colors.grey[900],
+              borderRadius: BorderRadius.circular(20),
+              boxShadow: [
+                BoxShadow(
+                    color: Colors.grey.shade500,
+                    offset: Offset(-4.0, -4.0),
+                    blurRadius: 10.0,
+                    spreadRadius: 2),
+                BoxShadow(
+                    color: Colors.black,
+                    offset: Offset(4.0, 4.0),
+                    blurRadius: 10.0,
+                    spreadRadius: 2)
+              ]),
+          child: Center(
+            child: Text(
+              'hello',
+              style: TextStyle(color: Colors.white, fontSize: 30),
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
