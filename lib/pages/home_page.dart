@@ -12,8 +12,8 @@ class HomePage extends StatelessWidget {
       body: Center(
         child: Container(
           padding: EdgeInsets.all(20),
-          height: 200,
-          width: 200,
+          height: 150,
+          width: 150,
           decoration: BoxDecoration(
               color: Colors.grey[900],
               borderRadius: BorderRadius.circular(20),
@@ -38,5 +38,6 @@ class HomePage extends StatelessWidget {
         ),
       ),
     );
+    //hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
   }
 }
