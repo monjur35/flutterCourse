@@ -4,6 +4,7 @@ import 'package:untitled/pages/home_page.dart';
 import 'package:untitled/pages/login_page.dart';
 import 'package:untitled/widgets/day01.dart';
 import 'package:untitled/widgets/day03.dart';
+import 'package:untitled/widgets/day04.dart';
 import 'package:untitled/widgets/theme.dart';
 
 void main() {
@@ -19,13 +20,14 @@ class MyApp extends StatelessWidget {
       theme: MyTheme.lightTheme(context),
       darkTheme: MyTheme.darkTheme(context),
       debugShowCheckedModeBanner: false,
-      initialRoute: MyRoutes.day3Route,
+      initialRoute: MyRoutes.day4Route,
       routes: {
         "/": (context) => LoginPage(),
         MyRoutes.homeRoute: (context) => HomePage(),
         MyRoutes.loginRoute: (context) => LoginPage(),
         MyRoutes.day1Route: (context) => Day01(),
-        MyRoutes.day3Route: (context) => Day03()
+        MyRoutes.day3Route: (context) => Day03(),
+        MyRoutes.day4Route: (context) => Day04()
       },
     );
   }
