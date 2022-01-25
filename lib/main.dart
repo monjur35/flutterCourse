@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:untitled/utils/MyRoutes.dart';
 import 'package:untitled/pages/home_page.dart';
 import 'package:untitled/pages/login_page.dart';
+import 'package:untitled/widgets/Day07.dart';
 import 'package:untitled/widgets/day01.dart';
 import 'package:untitled/widgets/day03.dart';
 import 'package:untitled/widgets/day04.dart';
@@ -29,7 +30,8 @@ class MyApp extends StatelessWidget {
         MyRoutes.day1Route: (context) => Day01(),
         MyRoutes.day3Route: (context) => Day03(),
         MyRoutes.day4Route: (context) => Day04(),
-        MyRoutes.day5Route: (context) => Day05()
+        MyRoutes.day5Route: (context) => Day05(),
+        MyRoutes.day7Route: (context) => GridViewClass()
       },
     );
   }
