@@ -13,6 +13,10 @@ class Day05 extends StatelessWidget {
               height: 300,
               width: 300,
               color: Colors.redAccent,
+              child: Image.asset(
+                'assets/images/login_image.png',
+                fit: BoxFit.cover,
+              ),
             ),
           ),
         ));
