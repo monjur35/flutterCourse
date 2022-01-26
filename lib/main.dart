@@ -3,6 +3,7 @@ import 'package:untitled/utils/MyRoutes.dart';
 import 'package:untitled/pages/home_page.dart';
 import 'package:untitled/pages/login_page.dart';
 import 'package:untitled/widgets/Day07.dart';
+import 'package:untitled/widgets/Day08.dart';
 import 'package:untitled/widgets/day01.dart';
 import 'package:untitled/widgets/day03.dart';
 import 'package:untitled/widgets/day04.dart';
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
       theme: MyTheme.lightTheme(context),
       darkTheme: MyTheme.darkTheme(context),
       debugShowCheckedModeBanner: false,
-      initialRoute: MyRoutes.day5Route,
+      initialRoute: MyRoutes.day8Route,
       routes: {
         "/": (context) => LoginPage(),
         MyRoutes.homeRoute: (context) => HomePage(),
@@ -31,7 +32,8 @@ class MyApp extends StatelessWidget {
         MyRoutes.day3Route: (context) => Day03(),
         MyRoutes.day4Route: (context) => Day04(),
         MyRoutes.day5Route: (context) => Day05(),
-        MyRoutes.day7Route: (context) => GridViewClass()
+        MyRoutes.day7Route: (context) => GridViewClass(),
+        MyRoutes.day8Route: (context) => GestureDetectorss()
       },
     );
   }

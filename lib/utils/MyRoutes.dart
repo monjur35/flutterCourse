@@ -6,4 +6,5 @@ class MyRoutes {
   static String day4Route = "/home";
   static String day5Route = "/home";
   static String day7Route = "/home";
+  static String day8Route = "/home";
 }
