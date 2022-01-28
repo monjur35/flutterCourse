@@ -8,26 +8,29 @@ class GestureDetectorss extends StatefulWidget {
 }
 
 class _GesturePageState extends State<GestureDetectorss> {
+  int numberofTimes = 0;
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Text("Tapped 0 times"),
-            Container(
-              padding: EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: Colors.blueAccent,
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          numberofTimes++;
+        });
+      },
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Text(
+                "Tapped ${numberofTimes.toString()} times",
+                style: TextStyle(fontSize: 25),
               ),
-              child: Text('Tap here',
-                  style: TextStyle(fontSize: 20, color: Colors.white)),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
