@@ -22,17 +22,21 @@ class _BottomState extends State<NavigationBottom> {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold(
       body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         currentIndex: _selectedIndex,
-        backgroundColor: Colors.amberAccent,
+        selectedItemColor: Colors.white,
+        backgroundColor: Colors.redAccent,
         onTap: _navigateBottomBar,
-        items: [
+        items: const [
           BottomNavigationBarItem(
-              icon: Icon(Icons.home_outlined), label: "Home"),
+            icon: Icon(
+              Icons.home_outlined,
+            ),
+            label: "Home",
+          ),
           BottomNavigationBarItem(
               icon: Icon(Icons.feed_outlined), label: "feed"),
           BottomNavigationBarItem(

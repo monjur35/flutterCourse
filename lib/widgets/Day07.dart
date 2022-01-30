@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 
 class GridViewClass extends StatelessWidget {
+  const GridViewClass({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
+    // ignore: todo
     // TODO: implement build
     return Scaffold(
       body: GridView.builder(
@@ -21,7 +24,7 @@ class GridViewClass extends StatelessWidget {
                   decoration:
                       BoxDecoration(color: Colors.cyanAccent, boxShadow: [
                     BoxShadow(
-                        offset: Offset(4, 4),
+                        offset: const Offset(4.0, 4.0),
                         color: Colors.grey.shade100,
                         spreadRadius: 10,
                         blurRadius: 1.0)

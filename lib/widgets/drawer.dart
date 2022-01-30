@@ -1,8 +1,25 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:untitled/pages/account.dart';
+import 'package:untitled/pages/feed.dart';
+import 'package:untitled/pages/home_page.dart';
+import 'package:untitled/pages/messege.dart';
 
-class HomeDrawer extends StatelessWidget {
+class HomeDrawer extends StatefulWidget {
   const HomeDrawer({Key? key}) : super(key: key);
+
+  _DrawerState createState() => _DrawerState();
+}
+
+class _DrawerState extends State<HomeDrawer> {
+  int _selectedIndex = 0;
+  final List<Widget> _pages = [HomePage(), Feed(), Messege(), Account()];
+
+  void _navigateBottomBar(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
