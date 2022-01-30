@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
 import 'package:untitled/pages/account.dart';
@@ -12,28 +12,51 @@ class Feed extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.redAccent,
-        elevation: 0,
-        centerTitle: true,
-        title: const Text('F E E D',
-            style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-                color: Colors.white)),
-        actions: [
-          IconButton(
-              onPressed: () {},
-              icon: const Icon(
-                Icons.share,
-                color: Colors.white,
-              ))
+      body: CustomScrollView(
+        slivers: [
+          SliverAppBar(
+            backgroundColor: Colors.redAccent,
+            centerTitle: true,
+            title: Text('Sliver'),
+            expandedHeight: 200,
+          ),
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: EdgeInsets.all(10),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: Container(
+                  height: 400,
+                  color: Colors.black12,
+                ),
+              ),
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: EdgeInsets.all(10),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: Container(
+                  height: 400,
+                  color: Colors.black12,
+                ),
+              ),
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: EdgeInsets.all(10),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: Container(
+                  height: 400,
+                  color: Colors.black12,
+                ),
+              ),
+            ),
+          )
         ],
-      ),
-      body: const Center(
-        child: Text(
-          "Feed",
-        ),
       ),
       drawer: Drawer(
         child: Container(
