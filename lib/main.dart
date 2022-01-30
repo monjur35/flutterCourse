@@ -5,6 +5,7 @@ import 'package:untitled/pages/login_page.dart';
 import 'package:untitled/widgets/BottomNavigation.dart';
 import 'package:untitled/widgets/Day07.dart';
 import 'package:untitled/widgets/Day08.dart';
+import 'package:untitled/widgets/anim.dart';
 import 'package:untitled/widgets/day01.dart';
 import 'package:untitled/widgets/day03.dart';
 import 'package:untitled/widgets/day04.dart';
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
       theme: MyTheme.lightTheme(context),
       darkTheme: MyTheme.darkTheme(context),
       debugShowCheckedModeBanner: false,
-      initialRoute: MyRoutes.day11Route,
+      initialRoute: MyRoutes.day12Route,
       routes: {
         "/": (context) => Day01(),
         MyRoutes.homeRoute: (context) => HomePage(),
@@ -37,7 +38,8 @@ class MyApp extends StatelessWidget {
         MyRoutes.day7Route: (context) => GridViewClass(),
         MyRoutes.day8Route: (context) => GestureDetectorss(),
         MyRoutes.day9Route: (context) => NavigationBottom(),
-        MyRoutes.day11Route: (context) => MyTabView()
+        MyRoutes.day11Route: (context) => MyTabView(),
+        MyRoutes.day12Route: (context) => AnimatedBox()
       },
     );
   }

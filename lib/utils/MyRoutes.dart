@@ -9,4 +9,5 @@ class MyRoutes {
   static String day8Route = "/home";
   static String day9Route = "/home";
   static String day11Route = "/tab";
+  static String day12Route = "/animated";
 }
