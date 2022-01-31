@@ -10,6 +10,7 @@ import 'package:untitled/widgets/day01.dart';
 import 'package:untitled/widgets/day03.dart';
 import 'package:untitled/widgets/day04.dart';
 import 'package:untitled/widgets/dayo5.dart';
+import 'package:untitled/widgets/mediaQuery.dart';
 import 'package:untitled/widgets/tabBar.dart';
 import 'package:untitled/widgets/theme.dart';
 
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
       theme: MyTheme.lightTheme(context),
       darkTheme: MyTheme.darkTheme(context),
       debugShowCheckedModeBanner: false,
-      initialRoute: MyRoutes.day12Route,
+      initialRoute: MyRoutes.day15Route,
       routes: {
         "/": (context) => Day01(),
         MyRoutes.homeRoute: (context) => HomePage(),
@@ -39,7 +40,8 @@ class MyApp extends StatelessWidget {
         MyRoutes.day8Route: (context) => GestureDetectorss(),
         MyRoutes.day9Route: (context) => NavigationBottom(),
         MyRoutes.day11Route: (context) => MyTabView(),
-        MyRoutes.day12Route: (context) => AnimatedBox()
+        MyRoutes.day12Route: (context) => AnimatedBox(),
+        MyRoutes.day15Route: (context) => MyMediaQuery()
       },
     );
   }
