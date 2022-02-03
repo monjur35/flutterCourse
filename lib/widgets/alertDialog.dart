@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Alert extends StatefulWidget {
@@ -12,7 +13,28 @@ class _AlertState extends State<Alert> {
     showDialog(
         context: context,
         builder: (context) {
-          return AlertDialog();
+          return CupertinoAlertDialog(
+            // backgroundColor: Colors.lightBlueAccent,
+            title: Text(
+              'Alert !!',
+              style:
+                  TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+            ),
+            //titlePadding: EdgeInsets.all(10),
+            content: Text('Are you sure ?'),
+            actions: [
+              MaterialButton(
+                onPressed: () {},
+                child: Text('Yes'),
+              ),
+              MaterialButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: Text('Cancel'),
+              )
+            ],
+          );
         });
   }
 
