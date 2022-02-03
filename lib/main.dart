@@ -5,6 +5,7 @@ import 'package:untitled/pages/login_page.dart';
 import 'package:untitled/widgets/BottomNavigation.dart';
 import 'package:untitled/widgets/Day07.dart';
 import 'package:untitled/widgets/Day08.dart';
+import 'package:untitled/widgets/alertDialog.dart';
 import 'package:untitled/widgets/anim.dart';
 import 'package:untitled/widgets/day01.dart';
 import 'package:untitled/widgets/day03.dart';
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
       theme: MyTheme.lightTheme(context),
       darkTheme: MyTheme.darkTheme(context),
       debugShowCheckedModeBanner: false,
-      initialRoute: MyRoutes.day15Route,
+      initialRoute: MyRoutes.day16Route,
       routes: {
         "/": (context) => Day01(),
         MyRoutes.homeRoute: (context) => HomePage(),
@@ -41,7 +42,8 @@ class MyApp extends StatelessWidget {
         MyRoutes.day9Route: (context) => NavigationBottom(),
         MyRoutes.day11Route: (context) => MyTabView(),
         MyRoutes.day12Route: (context) => AnimatedBox(),
-        MyRoutes.day15Route: (context) => MyMediaQuery()
+        MyRoutes.day15Route: (context) => MyMediaQuery(),
+        MyRoutes.day16Route: (context) => Alert()
       },
     );
   }

@@ -11,4 +11,5 @@ class MyRoutes {
   static String day11Route = "/tab";
   static String day12Route = "/animated";
   static String day15Route = "/media";
+  static String day16Route = "/media";
 }
