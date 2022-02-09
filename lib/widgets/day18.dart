@@ -17,12 +17,7 @@ class RichTexttttt extends StatelessWidget {
           ),
           RichText(
             text: TextSpan(
-              children: [
-                TextSpan(text: "Monjur"),
-                TextSpan(
-                    text:
-                        "Monasdasodpoadpoaopsdpoajspdjaishf8ahf8asfjajfjajfpjaspfjpaosjfpajur")
-              ],
+              children: [],
             ),
           )
         ],
