@@ -11,6 +11,7 @@ import 'package:untitled/widgets/day01.dart';
 import 'package:untitled/widgets/day03.dart';
 import 'package:untitled/widgets/day04.dart';
 import 'package:untitled/widgets/day18.dart';
+import 'package:untitled/widgets/day20.dart';
 import 'package:untitled/widgets/dayo5.dart';
 import 'package:untitled/widgets/mediaQuery.dart';
 import 'package:untitled/widgets/tabBar.dart';
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
       theme: MyTheme.lightTheme(context),
       darkTheme: MyTheme.darkTheme(context),
       debugShowCheckedModeBanner: false,
-      initialRoute: MyRoutes.day18Route,
+      initialRoute: MyRoutes.day20Route,
       routes: {
         "/": (context) => Day01(),
         MyRoutes.homeRoute: (context) => HomePage(),
@@ -45,7 +46,8 @@ class MyApp extends StatelessWidget {
         MyRoutes.day12Route: (context) => AnimatedBox(),
         MyRoutes.day15Route: (context) => MyMediaQuery(),
         MyRoutes.day16Route: (context) => Alert(),
-        MyRoutes.day18Route: (context) => RichTexttttt()
+        MyRoutes.day18Route: (context) => RichTexttttt(),
+        MyRoutes.day20Route: (context) => TimerCLass()
       },
     );
   }
