@@ -18,6 +18,7 @@ class _TimerCLassState extends State<TimerCLass> {
           timeLeft--;
         } else {
           timer.cancel();
+          timeLeft = 5;
         }
       });
     });
